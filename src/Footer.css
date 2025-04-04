@@ -1,0 +1,32 @@
+
+.whyChooseUs{
+  font-family: Arial;
+  font-size: 5vw;
+  color: rgb(255, 255, 255);
+  padding: 2vw;
+}
+
+.footer{
+  background-color: rgb(91, 34, 102);
+  padding : 1vh;
+}
+
+.textContainer{
+  color: white;
+  margin: 1vw;
+  padding: 3vw;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 30px;
+  text-align: justify;
+}
+
+.text{
+  width: 60vw;
+}
+
+.footerImage{
+  width: 27vw;
+  border-radius: 30px;
+}

@@ -1,0 +1,85 @@
+.loginOrSignup{
+  background-color: rgb(255, 255, 255);
+  color: black;
+  width: 30vw;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+.buttons{
+  display: flex;
+  /* justify-content:space-around; */
+  width: 30vw;
+  /* margin-bottom: 8vh; */
+  margin-top: 2vh;
+}
+.buttons button{
+  width: 14vw;
+}
+
+.buttons button:hover,.loginBtn:hover{
+  cursor:pointer;
+}
+
+.inputField{
+  margin-top: 9vh;
+  border: 1px solid rgb(97, 94, 94);
+  background-color: rgb(224, 216, 216);
+  border-radius: 15px;
+  padding: 1vh;
+}
+
+.loginBtn{
+  display: block;
+}
+
+.submit{
+  width : 30vw;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4vh;
+  margin-top: 5vh;
+}
+
+.form{
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+}
+
+.inputs{
+  width: 19vw;
+}
+
+.formBtn{
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding: 1vh;
+  background: none;
+  border:none ;
+}
+
+.formBtn:hover{
+  background-color: rgba(0, 0, 0, 0.123);
+  border-radius: 30px;
+}
+
+.loginBtn{
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  background: none;
+  border:1px solid black ;
+  border-radius : 10px;
+  box-shadow: 0px 3px 0px black;
+}
+
+.loginBtn:hover{
+  background-color: rgba(0, 0, 0, 0.123);
+}
+
+.loginBtn:active{
+  box-shadow: none;
+}

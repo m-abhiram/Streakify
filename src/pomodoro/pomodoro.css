@@ -1,0 +1,300 @@
+body{
+  background-color: rgb(35, 40, 40);
+}
+
+.pomo{
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+
+.todoTop{
+  background-color: rgb(238, 112, 112);
+  width: 400px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.75em;
+}
+
+.Todolist{
+  background-color: white;
+  width: 400px;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.todobody{
+  display: flex;
+  justify-content: center;
+}
+
+.todo-item{
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 3px -3px 3px  black;
+  margin: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+.todo-item-completed{
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 3px -3px 3px  black;
+  margin: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.todo-items{
+  background-color: white;
+}
+
+.item-text2{
+  text-decoration:line-through;
+  color: rgb(73, 67, 67);
+  font-size: 1.15rem;
+}
+
+
+.item-text1{
+  font-size: 1.15rem;
+}
+
+.todo-item:hover,.todo-item-completed:hover{
+  scale: 1.02;
+  cursor: pointer;
+}
+
+.todo-item input:hover{
+  cursor: pointer;
+}
+
+.todo-item input:active{
+  transform: transition text-decoration 2s;
+}
+
+.item-bin-img{
+  width: 30px;
+  height: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.addTask{
+  display: flex ;
+  position: absolute;
+  right: 40px;
+  top: 530px;
+  width: 380px;
+  margin-left: 10px;
+  justify-content: space-between;
+}
+.addTask input{
+  width: 150px;
+}
+
+.clock-container{
+  width: 850px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-timer{
+  text-shadow: 0px 0px 50px white;
+  color: hsl(0, 0%, 100%);
+  font-size: 5rem;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.stopwatch{
+  width: 870px;
+  border-radius: 30px;
+  padding: 20px;
+  background-color:rgb(74, 150, 126);
+  display: flex;
+  justify-content: center;
+
+}
+
+.timer-image{
+  width: 240px;
+  height: 220px;
+  border: 1px solid white;
+  /* padding: 30px; */
+  border-radius: 50%;
+  margin-top: 40px;
+}
+
+.timer-button{
+  margin-left: 57px;
+  margin-top: 60px;
+  background: none;
+  font-size: 1.2rem;
+  padding : 3px 20px;
+  font-family: sans-serif;
+  border-radius: 20px;
+}
+
+.timer-button:hover{
+  cursor: pointer;
+}
+
+.remaining{
+  width: fit-content;
+  margin:auto;
+}
+
+.remaining p {
+  font-size: 2.5rem;
+  color: white;
+  font-family: monospace;
+  font-weight: 800;
+}
+
+.timer{
+  width: fit-content;
+}
+
+.timerBtns{
+  height: fit-content;
+  padding: 5px;
+  font-family: monospace;
+  font-size: 1.7rem;
+  background: none;
+  margin: auto;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding : 0px 8px; 
+  color: white; 
+}
+
+.timerBtns:hover{
+  cursor: pointer;
+}
+
+.choice{
+  /* background-color: yellow; */
+  width: 900px;
+  margin-left: 20px;
+  position: absolute;
+  top: 22%;
+  left: 2%;
+}
+
+.choiceBtns{
+  width: fit-content;
+  margin: auto;
+}
+
+.timeOrStopwatch{
+  margin : 0px 10px;
+  background:none;
+  font-size: 1.2rem;
+  border: none;
+  color: white;
+  border-radius: 30px;
+  padding: 5px;
+}
+
+.timeOrStopwatch:hover{
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.322);
+}
+
+.hideBtns{
+  display: none;
+}
+
+.takeItemInputField{
+  background: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  padding: 0px 5px;
+  margin: 0px 5px;
+}
+
+.addTaskBtn{
+  border: 1px solid green;
+  padding : 5px;
+  cursor: pointer;
+  background: none;
+  border-radius: 5px;
+}
+
+.placard{
+  border: 1px solid white ;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.829);
+  overflow: hidden;
+  position: absolute;
+  width: 40vw;
+  top: 30%;
+}
+.top{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.greeting{
+  width: 100%;
+}
+
+.top p{
+  width: fit-content;
+  margin: 10px auto;
+  font-size:1.5rem ;
+}
+
+.top button{
+  padding: 10px;
+  background: none;
+  background-color: rgba(255, 255, 255, 0.541);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.top button:hover{
+  background-color: rgba(255, 255, 255, 0.288);
+
+}
+
+.placard-body{
+  /* border: 1px solid white; */
+  width: 80%;
+  margin: 0px auto;
+}
+
+.placard-text{
+  width: fit-content;
+  margin: 20px auto;
+}
+
+.placard-img{
+  width: 100%;
+  margin: 30px 0px;
+}
+
+.placard-img img{
+  width: 90px;
+  height: 90px;
+  margin-left:40%;
+
+}
