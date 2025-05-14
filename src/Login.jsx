@@ -1,12 +1,90 @@
-import React , {useState} from 'react';
+import React , {useEffect, useState} from 'react';
 import "./Login.css";
 import { Link } from 'react-router-dom';
+import authModel from "./models/auth.model.js"
+import { ToastContainer, toast } from 'react-toastify';
 
-function Login(){
-
+function Login(props){
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
+  const [username,setUsername] = useState("")
   const [loginBtn,setLoginBtn] = useState(true);
   const [signupBtn,setSignupBtn] = useState(false);
   
+  useEffect(() => {
+    if (props.currentUser){
+      console.log("State updated:", props.currentUser);
+    }
+  }, [props.currentUser]);
+  
+
+  const handleEmailChange = (e)=>{
+    setEmail(email => e.target.value)
+  }
+  const handlePasswordChange = (e)=>{
+    setPassword(password => e.target.value)
+  }
+
+  const handleUserLogin = async (e)=>{
+    e.preventDefault();
+    if (email == "" || password == ""){
+      toast("Enter details first!")
+      return
+    }
+    // const token = jwt.sign(body,process.env.SECRET_KEY)
+
+    fetch ("http://localhost:3000/api/login",{
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email : email ,password : password})
+    }
+    ).then(async(response) => {
+      response = await response.json()
+      return response
+    }).then((data)=>{
+      localStorage.setItem("token",data.token);
+      if (data.message == "Login successful"){
+        toast("Successfully Logged In!!")
+        setTimeout(()=>{
+          window.location = "/profile"
+        },3000)
+      }
+      else{
+        toast("Incorrect credentials!")
+      }
+    }) 
+  }
+
+  const handleUserRegister = async (e)=>{
+    e.preventDefault();
+    if (email == "" || password == ""){
+      console.log("Enter details first!")
+      return
+    }
+    try {
+      console.log("signin clicked!")
+      fetch("http://localhost:3000/api/register",{
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email ,password : password,username:username})})
+      .then(async(response) => {
+          console.log("response :",response)
+          response = await response.json()
+          return response
+      })
+      .then((data) => {
+        console.log("the user has been created as  :",data.user)
+        localStorage.setItem("token",data.token)
+        toast(data.message)
+        if (data.message == "User created successfully!"){
+          window.location = "/profile"
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
   const handleLoginClick = ()=>{
     setLoginBtn(true);
     setSignupBtn(false);
@@ -15,6 +93,9 @@ function Login(){
     setLoginBtn(false);
     setSignupBtn(true);
   }
+  const handleUsernameChange = (e)=>{
+    setUsername(e.target.value)
+  } 
 
   return (
     <>
@@ -27,12 +108,14 @@ function Login(){
 
         <div className="form">
           <div className="inputs">
-            <input type="text" className = "inputField" placeholder='Enter Username or email'/>
-            <input type="text" className = "inputField" placeholder='Enter password'/>
+            <input type="text" className = "inputField" placeholder='Enter email' onChange={handleEmailChange}/>
+            <input type="text" className = "inputField" placeholder='Enter password' onChange = {handlePasswordChange}/>
+            {!loginBtn && <input type="text" className = "inputField" placeholder='Enter username' onChange = {handleUsernameChange}/>}
           </div>
         </div>
+        <ToastContainer />
         <div className="submit">
-          {loginBtn ? <Link to = "/profile" className="loginBtn">Login</Link> : <Link to = "/profile" className="loginBtn">Signup</Link>} 
+          {loginBtn ? <button onClick = {handleUserLogin} className="loginBtn">Login</button> : <Link to = "/" className="loginBtn" onClick={handleUserRegister}>Signup</Link>} 
         </div>
       </div>
     </>

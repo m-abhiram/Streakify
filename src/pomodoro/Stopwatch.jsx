@@ -86,6 +86,17 @@ function Stopwatch(props) {
       handleConfetti();
       setElapsedTime(0);
       setIsRunning(false);
+      // award pomocoins
+      const inc = (minutes <= 30 ? 20 : minutes <= 60 ? 30 : minutes <= 90 ? 35 : 40)
+      const token = localStorage.getItem("token");
+      fetch("http://localhost:3000/api/addPomocoins",{
+        method : "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body : JSON.stringify({token : token,increment : inc})
+      })
+
     }
 
     if (remainingMinutes < 10){
@@ -98,17 +109,10 @@ function Stopwatch(props) {
   function handleTimerClick(event){
     if (event.target.innerText === "Start"){
       event.target.innerText = "Give Up"
-      //start timer till minutes ===0 and seconds ===0
-      //make the button as "Start" again
       start()
-      //show confetti | placard of appreciation
-      
-      //award pomo coins!!
-      // awardPomoCoins()
     }
     else{
       event.target.innerText = "Start"
-      //Reset timer to 0 and show placard of encouragement (kill that interval instance)
       reset()
     }
   }

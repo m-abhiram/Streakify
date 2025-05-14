@@ -250,7 +250,10 @@
 }
 
 .leaderboardContent{
-  border : 1px solid white;
+  /* border : 1px solid white; */
   padding: 20px;
 }
 
+.leaderboard{
+  width: 100%;
+}

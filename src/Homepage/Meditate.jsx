@@ -6,7 +6,7 @@ function Meditate() {
       <div className='Meditate-container'>
         <div className="meditateHeading">Meditate</div>
         <div className="meditateTimer">
-          <Stopwatch minTime = {1} diff={5}/>
+          <Stopwatch minTime = {15} diff={5}/>
         </div>
       </div>
   )

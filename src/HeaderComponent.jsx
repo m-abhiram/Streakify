@@ -3,7 +3,8 @@ import Login from "./Login";
 import logo from "./assets/logo.png"
 import Navbar from "./NavBar";
 
-function HeaderComponent(){
+function HeaderComponent(props){
+  console.log("currentUSEr in headercomponent :",props.currentUser)
   return(
     <>
       <div className = "header">
@@ -13,7 +14,7 @@ function HeaderComponent(){
             <h1 className = "website-name">Track. Streak. Thrive.</h1>
           </div>
           <div className="login">
-            <Login />
+            <Login currentUser = {props.currentUser}/>
           </div>
         </div>
       </div>

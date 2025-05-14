@@ -6,7 +6,7 @@ function AddItem(props){
   const [time,setTime] = useState("")
   function handleAddItem(){
     let item = {taskName:task, estimatedTime:time, id: v4() }
-    console.log("item :",item)
+    // console.log("item :",item)
     props.addItem(item)
     setTask("")
     setTime("")

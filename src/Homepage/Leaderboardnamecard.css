@@ -1,0 +1,26 @@
+.namecardFlex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2b5e9d;
+  border: 2px solid gold;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+}
+
+.streak-info{
+  width: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.leaderboard-name{
+  width: 200px;
+}
+.streak-icon{
+  height: 30px;
+}

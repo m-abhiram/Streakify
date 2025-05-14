@@ -4,7 +4,7 @@ import bin from "../assets/bin.png"
 
 function TodoItem(props){
   function handleDelete(){
-    console.log("button clicked!")
+    // console.log("button clicked!")
     props.handleChangeList(props.item.id) 
   }
 
