@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './pomodoro.css'
 import Todo from './Todo';
-import Navbar from '../NavBar';
 import Clock from './Clock';
 import Stopwatch from './Stopwatch';
 
