@@ -1,0 +1,133 @@
+.about-container {
+  margin: auto;
+
+  width: 80%;
+  margin: auto;
+  background: linear-gradient(180deg, #0e0e10, #121212);
+  color: #f3f3f3;
+  padding: 80px 20px;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+}
+
+/* Header */
+.about-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #8b5cf6, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.about-subtitle {
+  color: #b0b0b0;
+  font-size: 1.1rem;
+}
+
+/* Description */
+.about-content {
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.about-description {
+  color: #c9c9c9;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #8b5cf6;
+  font-weight: 600;
+}
+
+/* Features Section */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.feature-card {
+  background: #1a1a1d;
+  border: 1px solid #2e2e33;
+  border-radius: 12px;
+  padding: 25px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  background: #232327;
+  border-color: #8b5cf6;
+  transform: translateY(-4px);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: #8b5cf6;
+  margin-bottom: 10px;
+}
+
+.feature-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #e4e4e4;
+  margin-bottom: 8px;
+}
+
+.feature-text {
+  color: #bdbdbd;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Footer Section */
+.about-footer {
+  text-align: center;
+  max-width: 700px;
+}
+
+.footer-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e4e4e4;
+  margin-bottom: 10px;
+}
+
+.footer-heading span {
+  color: #8b5cf6;
+}
+
+.footer-text {
+  color: #a0a0a0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .about-title {
+    font-size: 2.2rem;
+  }
+  .about-subtitle {
+    font-size: 1rem;
+  }
+  .feature-card {
+    padding: 20px 16px;
+  }
+}

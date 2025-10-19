@@ -1,0 +1,517 @@
+.homepage-sidebar {
+  position: fixed;
+  top: 2%;
+  left: 0;
+  height: fit-content;
+  width: 70px; /* collapsed width */
+  border-radius: 0 20px 20px 0;
+  background: linear-gradient(180deg, #6dd5ed, #2193b0); /* gradient */
+  box-shadow: 3px 0 12px rgba(0,0,0,0.2); /* soft shadow */
+  transition: width 0.3s ease;
+  overflow-x: hidden;
+  z-index: 1000;
+}
+
+.homepage-sidebar:hover {
+  width: 220px; /* expanded */
+}
+
+.sidebarButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  border-radius: 12px;
+  margin: 8px;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.sidebarButton:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateX(5px); /* slide effect */
+}
+
+.sidebarButton svg {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.sidebarButton span {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.homepage-sidebar:hover .sidebarButton span {
+  opacity: 1;
+}
+
+
+
+
+
+.homepageContent{
+  display: flex;
+  justify-content: space-between;
+}
+
+.content{
+  width: 1150px;
+}
+
+
+.homepageContent{
+  padding: 30px;
+}
+
+
+
+
+
+/* profile.jsx */
+
+/* .profileNameAndImage{
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid white;
+  padding : 10px;
+  border-radius : 10px;
+  height: 260px;
+}
+
+.user-details{
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.profileName{
+  font-size: 2rem;
+}
+
+.pomo-icon{
+  width: 20px;
+  height: fit-content;
+  margin-top: 2px;
+}
+
+.streak-data{
+  margin-left: 20px;
+}
+
+.profileImage{
+  height: 35vh;
+  width: 17vw;
+}
+
+.uploadProfileImg{
+  background: none;
+  margin-left: 35px;
+  color: white;
+  border-radius : 20px;
+  border: 1px solid white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.dailyItems h1{
+  font-size: 1.7rem;
+}
+
+.logoutDiv{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+} */
+
+
+/* Overall profile container */
+.profile {
+  width: 80%;
+  max-width: 80%;
+  margin: 0px auto;
+  padding: 20px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+/* -------- Profile Card -------- */
+.profileNameAndImage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+  padding: 25px 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  margin-bottom: 30px;
+}
+
+/* Left-side user details */
+.user-details {
+  flex: 1;
+}
+
+.profileName {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.flexi {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
+}
+
+.pomo-info {
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pomo-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.streakDataAndImage {
+  display: flex;
+  align-items: center;
+}
+
+.streak-data {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+/* Right-side profile image */
+.profileImage {
+  text-align: center;
+}
+
+.profileImage img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00c6ff;
+  box-shadow: 0 4px 12px rgba(0, 198, 255, 0.3);
+}
+
+.uploadProfileImg {
+  margin-top: 10px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  background: #00c6ff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.uploadProfileImg:hover {
+  background: #0094cc;
+  transform: scale(1.05);
+}
+
+/* -------- Daily Habits Section -------- */
+.dailyItems {
+  background: #222;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.dailyItems h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-bottom: 2px solid #00c6ff;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* DailyTodo wrapper */
+.dailyToDo {
+  margin-top: 15px;
+}
+
+/* -------- Logout -------- */
+.logoutDiv {
+  margin-top: 30px;
+  text-align: right;
+}
+
+/* -------- Streak Month Map Placeholder -------- */
+.streakMonthMap {
+  margin: 20px 0;
+  background: #2a2a2a;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 12px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+
+/* Daily TODO list */
+
+.daily-todo {
+  padding: 20px;
+  display: flex;
+  color : black;
+  justify-content: center;
+}
+
+.daily-todoList {
+  width: fit-content;
+  background: #1a1a1a; /* dark premium */
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.dailytodoheader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dailytodoheaderText {
+  font-size: 2rem;
+  font-weight: bold;
+  border:none;
+  background: linear-gradient(90deg, #ff0000, #5ed32f 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.todo-sections {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.pendingTasks,
+.completedTasks {
+  flex: 1;
+  background: #262626;
+  border-radius: 12px;
+  padding: 15px;
+  min-height: 200px;
+  min-width: 400px;
+}
+
+.dailyHeading {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.dailyHeading.pending {
+  color: #f75f48; /* reddish orange */
+}
+
+.dailyHeading.completed {
+  color: #2dba5e; /* green */
+}
+
+.todo-items1 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* background-color: pink; */
+  
+}
+
+.todo-items1 li {
+  list-style: none;
+}
+
+
+
+
+
+
+
+.daily-addTask{
+  width: fit-content;
+  margin: 20px auto;
+}
+
+.daily-addTask button:hover{
+  background-color: green;
+  color: white;
+}
+
+.daily-addTask input{
+  height: 30px;
+}
+
+
+.journal{
+  /* position: absolute; */
+  margin:auto;
+  background-color: #092722;
+  border: 1px solid white;
+  color: white;
+  margin-top : 10px;
+  padding: 15px;
+  border-radius: 20px;
+}
+.journal-heading{
+  height: 10vh;
+}
+
+.journal-heading h1{
+  font-size: 2rem;
+  font-family: Lucida Handwriting;
+  width: fit-content;
+  margin: 0px auto;
+}
+
+.journal-content{
+  margin-top : 10px;
+  height: 80vh;
+  overflow: auto;
+}
+
+.journal-title{
+  display: flex;
+}
+
+.journal-date{
+  width: fit-content;
+  font-size: 1.5rem;
+  margin: 20px auto;
+}
+.title{
+  width: 60vw;
+}
+
+.title-inp{
+  width: 35vw;
+  margin: 10px 10vw;
+  background: none;
+  border-radius: 20px;
+  padding: 10px;
+  color: white;
+  border: 1px solid white;
+}
+
+
+
+.journal-body{
+  width: 95%;
+  margin: 20px auto;
+}
+
+.body{
+  width: 96%;
+  padding: 20px;
+  font-size: 1.1rem;
+  background : none;
+  color: white;
+  font-family: Garamond;
+  border-radius: 20px;
+}
+
+.journal-save{
+  margin: 0px auto;
+  width: fit-content;
+}
+
+.save-btn{
+  width: 100%;
+  cursor: pointer;
+  background: none;
+  color: white;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.save-btn:hover,.title-inp:hover,.body:hover{
+  background-color: hsla(0, 0%, 100%, 0.151);
+}
+
+.Meditate-container{
+  width: 100%;
+}
+
+.meditateHeading{
+  color: white;
+  font-family: Lucida Handwriting;
+  font-size: 2.5rem;
+  width: fit-content;
+  margin: 0px auto;
+}
+
+.meditateTimer{
+  margin: 30px auto;
+  width: fit-content;
+}
+
+.leaderboardHeading{
+  color: white;
+  font-family: Lucida Handwriting;
+  font-size: 2.5rem;
+  width: fit-content;
+  margin: 0px auto;
+}
+
+.leaderboardContent{
+  /* border : 1px solid white; */
+  padding: 20px;
+}
+
+.leaderboard{
+  margin:auto;
+  width: 80%;
+}
+
+
+.logoutBtn{
+  background: none;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px black;
+}
+
+.logoutBtn:active{
+  box-shadow: none;
+}
+
+.journal-completed{
+  height: fit-content;
+  width: fit-content;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.journal-completed-container{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
