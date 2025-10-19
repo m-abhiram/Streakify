@@ -14,6 +14,9 @@ app.use(express.json())
 app.use(cors())
 
 
+app.get("/health",async(req,res)=>{
+  res.status(200).json({message : "The website is working"})
+})
 
 app.post("/api/register", async (req, res) => {
   try {
@@ -246,6 +249,7 @@ app.post("/api/saveJournalEntry",(req,res)=>{
     return res.status(500).json({error : error.message});
   }
 })
+
 
 app.post("/api/checkJournalEntry",(req,res)=>{
   console.log("req.body :",req.body)
