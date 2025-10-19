@@ -1,7 +1,7 @@
 import "./Header.css"
 import Login from "./Login";
 import logo from "./assets/logo.png"
-import Navbar from "./NavBar";
+import Navbar from "./Navbar";
 
 function HeaderComponent(props){
   console.log("currentUSEr in headercomponent :",props.currentUser)

@@ -1,5 +1,4 @@
 import {useState} from 'react';
-import Navbar from "../NavBar";
 import Sidebar from "./Sidebar";
 import Profile from "./Profile";
 import Meditate from "./Meditate";
