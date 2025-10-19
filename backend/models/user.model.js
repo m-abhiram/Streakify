@@ -39,7 +39,7 @@ const UserSchema = mongoose.Schema(
     },
     journals :{
       type : Object,
-      defailt : {}
+      default : {}
     }
   },
   {
