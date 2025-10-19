@@ -6,7 +6,6 @@ import Footer from "./Footer"
 import Homepage from "./Homepage/Homepage";
 import Pomodoro from "./pomodoro/Pomodoro";
 import MostUsedTemplates from "./MostUsedTemplates/MostUsedTemplates";
-import Navbar from "./NavBar";
 import Profile from "./Homepage/Profile";
 import Meditate from "./Homepage/Meditate";
 import Sidebar from "./Homepage/Sidebar";
