@@ -59,12 +59,11 @@ function DailyTodo() {
     if (dates) {
       renderLists();
     }
-  }, [dates]); // get prev dates
+  }, [dates]);
 
   
   function parseIndianDate(dateStr) {
     const [day, month, year] = dateStr.split("/");
-    // console.log(`${year}-${month}-${day}`)
     return new Date(`${year}-${month}-${day}`); 
   }
   // working
@@ -72,8 +71,11 @@ function DailyTodo() {
     let tempCompleted = []
     let tempPending = []
     for (let task of habits){
-      // console.log(task)
       let now = new Date().toLocaleDateString();
+      if (dates[task.taskName] == null){
+        tempPending.push(task)
+        continue;
+      }
       const completed = new Date(dates[task.taskName]);
       const formattedCompleted = completed.toISOString().split("T")[0]
       const uiDate = parseIndianDate(now)

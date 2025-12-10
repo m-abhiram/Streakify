@@ -43,8 +43,6 @@ app.post("/api/register", async (req, res) => {
     ).then(async(response) => {
       response = await response.json()
       if (response.user){
-        console.log("response :",response)
-        console.log("response.user :",response.user)
           const payload = {_id : response.user._id.toString()}
           const token = jwt.sign(payload,process.env.SECRET_KEY)
           return res.json({ message: "User created successfully!",user : response.user ,token : token});
@@ -102,7 +100,7 @@ app.post("/api/addDailyHabit",async(req,res)=>{
     })
   }
   catch(error){
-    console.log("error :",error)
+    res.json("error :",error)
   }
 })
 
@@ -174,7 +172,6 @@ app.post("/api/getAllJournals",async (req,res)=>{
   try{
     jwt.verify(token,process.env.SECRET_KEY, async(error,data)=>{
       const userData = await userSchema.findOne({_id : data._id})
-      // console.log("sending :",userData.journals)
       res.json({journals : userData.journals}).status(200)
     })
   }catch(error){
@@ -225,12 +222,10 @@ app.post("/api/isStreakActive",(req,res)=>{
   try {
     const {token} = req.body;
     jwt.verify(token,process.env.SECRET_KEY,async (error,data)=>{
-      console.log("data :",data);
       const now = new Date();
       const yesterday5am = new Date(now.getFullYear(),now.getMonth(),now.getDate()-1,5,0,0,0);
       const today5am = new Date(now.getFullYear(),now.getMonth(),now.getDate(),5,0,0,0);
       const userData = await userSchema.findOne({_id : data._id});
-      console.log("userData :",userData);
       const lastSubmission = userData.completed_dates.length > 0 ? new Date(userData.completed_dates[userData.completed_dates.length - 1]) : 0;
       if (lastSubmission > yesterday5am){
         res.json({active : true,streak : userData.streak})
@@ -242,7 +237,6 @@ app.post("/api/isStreakActive",(req,res)=>{
     })
   
   } catch (error) {
-    console.log("error :",error.message);
     res.json({error : error.message});
   } 
   
@@ -264,7 +258,7 @@ app.post("/api/incrementStreak",(req,res) => {
     })
   }
   catch(error){
-    console.log("error :",error)
+    res.json("error :",error)
   }
 })
 
@@ -310,7 +304,6 @@ app.post("/api/checkJournalEntry",(req,res)=>{
   jwt.verify(token,process.env.SECRET_KEY,async(error,data)=>{
     const userData = await userSchema.findOne({_id : data._id})
     const previousUpdate = Object.keys(userData.journals).at(-1)
-    console.log("prev :",previousUpdate)
     const now = new Date();
     const today = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`
     if (today == previousUpdate){
@@ -329,7 +322,7 @@ const encodedPassword = encodeURIComponent(password);
 
 mongoose.connect(`mongodb+srv://Abhirama:${encodedPassword}${process.env.CONNECTION_STRING}`)
 .then(()=>{ 
-  app.listen(3000,()=>{console.log("successfully connected and running on http://localhost:3000/")})
+  app.listen(3000,()=>{console.log(`successfully connected and running on http://${import.meta.VITE_BACKEND_URL}/`)})
 
 })
 .catch((e)=>{
