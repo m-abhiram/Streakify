@@ -515,3 +515,45 @@
   justify-content: center;
   align-items: center;
 }
+
+.journalIconDiv{
+  height: 50px;
+  position: fixed;
+  bottom: 30%;
+  right: 3%;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.journalIcons{
+  margin-top: 3px;
+  height: 40px;
+}
+.journalIconDiv:hover{
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+
+.journalListContainer{
+  height: fit-content;
+  width: 90%;
+  margin: 6%;
+  text-align: center;
+  width: 100%;
+  margin-top: 4%;
+}
+
+.journalList{
+  border: 2px solid white;
+  min-height: 300px;
+  text-align: left;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

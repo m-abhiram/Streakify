@@ -64,7 +64,7 @@ function App() {
     },
     {
       path : "/chatbot",
-      element :  <>{token ? <div className="random"><Sidebar/> <div style={{display:"flex",alignItems : "center",justifyContent:"center",width:"100vw",height:"100vh"}}><p style={{color : "white",fontSize : "2rem"}}>This feature wil be available soon!</p></div></div>: <div style={{color : "white",display: "flex",justifyContent : "center",alignItems : "center",width : "100%",fontSize : "70px"}}>You need to login first!</div>}</>
+      element :  <>{token ? <div className="random"><Sidebar/> <Chatbar/> </div>: <div style={{color : "white",display: "flex",justifyContent : "center",alignItems : "center",width : "100%",fontSize : "70px"}}>You need to login first!</div>}</>
     },
     {
       path : "/faq",

@@ -11,11 +11,9 @@ function TodoItem(props){
   return (
     <div className="todo-item">
       <p className="item-text1">{props.item.taskName} <i>({props.item.estimatedTime})</i></p>  
-      {props.item.completed ? "" : <img className = "item-bin-img" src={bin} onClick={handleDelete}/>}
+      {props.completed ? "" : <img className = "item-bin-img" src={bin} onClick={handleDelete}/>}
     </div>
   )
 }
 
 export default TodoItem;
-
-// {checkBox ? "item-text2" : "item-text1"}

@@ -40,7 +40,13 @@ const UserSchema = mongoose.Schema(
     journals :{
       type : Object,
       default : {}
+    },
+    habitsPreviousDates: {
+    type: Map,
+    of: Date,
+    default: {}
     }
+
   },
   {
     timestamps : true,

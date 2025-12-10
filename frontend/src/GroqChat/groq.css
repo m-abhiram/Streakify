@@ -11,14 +11,27 @@
   border: 1px solid white;
   margin:50px 100px;
   overflow-y: auto;
-  padding: 3%;
+  padding: 1.5%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   border-radius: 30px;
 }
 .heading{
   color: white;
   font-size: 2rem;
   margin-top: 30px;
+}
+
+.chat p{
+  color:white;
+  width: 100%;
+}
+
+.groqMessage{
+  justify-content: flex-start;
+}
+
+.myMessage{
+  justify-content: flex-end;
 }

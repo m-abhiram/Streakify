@@ -133,6 +133,33 @@ app.post("/api/getUserByID",async (req,res)=>{
   }
 })
 
+
+app.post("/api/habits",(req,res)=>{
+  const token = req.body.token
+  try{
+    jwt.verify(token,process.env.SECRET_KEY,async (error,data)=>{
+      const userData = await userSchema.findOne({_id : data._id}).lean()
+      res.json({habits : userData.dailyHabits})
+    })
+  }catch(error){
+    res.json({mesage : error.message})
+  }
+
+})
+
+app.post("/api/getLastDates",(req,res)=>{
+  const token = req.body.token
+  try{
+    jwt.verify(token,process.env.SECRET_KEY,async (error,data)=>{
+      const userData = await userSchema.findOne({_id : data._id}).lean()
+      res.json({previousDates : userData.habitsPreviousDates})
+    })
+  }catch(error){
+    res.json({mesage : error.message})
+  }
+})
+
+
 app.get("/api/getAllUsers/",async (req,res)=>{
   try {
     const listOfUsers = await userSchema.find({}).sort({pomocoins : -1}).limit(10)
@@ -140,6 +167,19 @@ app.get("/api/getAllUsers/",async (req,res)=>{
   } catch (error) {
     res.json({"message" : error.messsage})
    }  
+})
+
+app.post("/api/getAllJournals",async (req,res)=>{
+  const token = req.body.token
+  try{
+    jwt.verify(token,process.env.SECRET_KEY, async(error,data)=>{
+      const userData = await userSchema.findOne({_id : data._id})
+      // console.log("sending :",userData.journals)
+      res.json({journals : userData.journals}).status(200)
+    })
+  }catch(error){
+    res.json({message : error.message})
+  }
 })
 
 
@@ -228,6 +268,20 @@ app.post("/api/incrementStreak",(req,res) => {
   }
 })
 
+app.post("/api/updateHabitPreviousDates",(req,res)=>{
+  const token = req.body.token 
+  const habit = req.body.habit
+  try {
+    jwt.verify(token,process.env.SECRET_KEY,async(error,data)=>{
+      //update with the current date of today
+      const userUpdate = await userSchema.findByIdAndUpdate(data._id, {$set: {[`habitsPreviousDates.${habit}`]: new Date()}},{ new: true })
+      res.json({update : userUpdate})
+    })
+  } catch (error) {
+    res.json({message : error.message})
+  }
+})
+
 app.post("/api/saveJournalEntry",(req,res)=>{
   const now = new Date();
   const key = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`;
@@ -252,24 +306,17 @@ app.post("/api/saveJournalEntry",(req,res)=>{
 
 
 app.post("/api/checkJournalEntry",(req,res)=>{
-  console.log("req.body :",req.body)
   const token = req.body.token;
   jwt.verify(token,process.env.SECRET_KEY,async(error,data)=>{
-    console.log("userData :",data)
-    const userData = await userSchema.findOne({_id : data._id}) 
-    console.log("userDAta :",userData)
+    const userData = await userSchema.findOne({_id : data._id})
     const previousUpdate = Object.keys(userData.journals).at(-1)
     console.log("prev :",previousUpdate)
-    const today = new Date().toLocaleDateString()
-    console.log("today :",today)
-    console.log(typeof today)
-    console.log(typeof previousUpdate)
+    const now = new Date();
+    const today = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`
     if (today == previousUpdate){
-      console.log("it was updated today")
       res.json({message : "todays journal completed", completed : true})
     }
     else{
-      console.log("it was not updated ")
       res.json({message : "todays journal pending", completed : false})
     }
    })

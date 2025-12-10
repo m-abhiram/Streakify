@@ -28,6 +28,16 @@ function Profile(props) {
     }).then((data)=>{
       handleSetUser(data)
     })
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/isStreakActive`,{
+      method : "POST",
+      headers : {
+        "Content-Type" : "application/json"
+      }, 
+      body : JSON.stringify({token : token})
+    })
+
+    
   }, [])
 
   const [listOfDailyItems,setListOfDailyItems] = useState([])
@@ -53,7 +63,7 @@ function Profile(props) {
             </div>
             <div className="profileImage">
               <img src={user?.image === "" ? guestImg : userImg} className = "profileImage" alt="" />
-              <button className="uploadProfileImg" onClick={handleImageUpload}>Update Image!</button>
+              {/* <button className="uploadProfileImg" onClick={handleImageUpload}>Update Image!</button> */}
             </div>
           </div>
           <div className="dailyItems">
